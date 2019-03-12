@@ -2,6 +2,8 @@ package com.wonwoo.wonwooblog.post;
 
 import javax.validation.Valid;
 
+import com.wonwoo.wonwooblog.exception.NotFoundException;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javassist.NotFoundException;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -26,7 +27,7 @@ public class PostController {
     private final PostService postService;
 
     @GetMapping("/{id}") // @RequestMapping(method = RequestMethod.GET)
-    public String findByPost(@PathVariable Long id, Model model) throws NotFoundException {
+    public String findByPost(@PathVariable Long id, Model model) {
         Post post = postService.findByIdAndStatus(id, PostStatus.Y);
 
         if(post == null){
@@ -43,7 +44,7 @@ public class PostController {
     }
 
     @GetMapping("/edit/{id}")
-    public String editPost(@PathVariable Long id, Model model) throws NotFoundException {
+    public String editPost(@PathVariable Long id, Model model) {
 
         Post post = postService.findByIdAndStatus(id, PostStatus.Y);
 
@@ -82,7 +83,7 @@ public class PostController {
     }
 
     @PostMapping("/{id}/edit")
-    public String updatePost(@PathVariable Long id, @ModelAttribute("editPost") @Valid PostDto updatePostItem, BindingResult bindingResult) throws NotFoundException {
+    public String updatePost(@PathVariable Long id, @ModelAttribute("editPost") @Valid PostDto updatePostItem, BindingResult bindingResult) {
 
         if(bindingResult.hasErrors()){
             return "post/edit";
@@ -102,7 +103,7 @@ public class PostController {
     }
 
     @PostMapping("{id}/delete")
-    public String deletePost(@PathVariable Long id) throws NotFoundException {
+    public String deletePost(@PathVariable Long id) {
         postService.deletePost(id);
         return "redirect:/#/";
         

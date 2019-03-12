@@ -2,10 +2,12 @@ package com.wonwoo.wonwooblog.post;
 
 import java.time.LocalDateTime;
 
+import com.wonwoo.wonwooblog.exception.NotFoundException;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javassist.NotFoundException;
+// import javassist.NotFoundException;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -23,7 +25,7 @@ public class PostService {
         return postRepository.save(post);
     }
 
-    public Post updatePost(Long id, Post post) throws NotFoundException {
+    public Post updatePost(Long id, Post post) {
         Post oldPost = postRepository.findByIdAndStatus(id, PostStatus.Y);
 
         if(oldPost == null){
@@ -46,7 +48,7 @@ public class PostService {
         return oldPost;
     }
 
-    public void deletePost(Long id) throws NotFoundException {
+    public void deletePost(Long id) {
         Post oldPost = postRepository.findByIdAndStatus(id, PostStatus.Y);
 
         if(oldPost == null){
@@ -58,7 +60,7 @@ public class PostService {
     }
 
     @Transactional(readOnly=true)
-    public Post findByIdAndStatus(Long id, PostStatus status) throws NotFoundException {
+    public Post findByIdAndStatus(Long id, PostStatus status) {
         Post post = postRepository.findByIdAndStatus(id, status);
 
         if(post == null){
