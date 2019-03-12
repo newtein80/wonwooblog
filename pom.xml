@@ -19,25 +19,33 @@
 	</properties>
 
 	<dependencies>
+		<!-- Spring data jpa -->
+		<!-- jpa만 있고 데이터베이스가 없다면 서버 기동시 에러가 발생: spring-boot의 자동설정과 관련이 있는데 datasource를 설정하고 연결해야 되는데 드라이버가 없어 에러 발생 -->
+		<!-- spring-boot-stater-data-jpa 를 디펜더시 받으면 하이버네이트, spring-data-jpa, jdbc등 관련 라이브러리들을 자동으로 디펜더시 한다. -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+		<!-- Web -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- Lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
+		<!-- Spring Boot Starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
