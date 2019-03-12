@@ -22,11 +22,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * PostControllerTest
  */
 @RunWith(SpringRunner.class)
-@WebMvcTest(PostControllerTest.class)
+@WebMvcTest(PostController.class) // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 public class PostControllerTest {
 
     @Autowired
-    private MockMvc mockMvc;
+    private MockMvc mvc;
 
     @MockBean
     private PostService postService;
@@ -37,7 +37,7 @@ public class PostControllerTest {
         given(this.postService.findByIdAndStatus(anyLong(), anyObject()))
                 .willReturn(new Post("제목", "컨텐츠", "마크다운", PostStatus.Y));
 
-        MvcResult mvcResult = this.mockMvc.perform(get("/posts/{id}", 1)).andExpect(status().isOk()).andReturn();
+        MvcResult mvcResult = this.mvc.perform(get("/posts/{id}", 1)).andExpect(status().isOk()).andReturn();
 
         Post post = (Post) mvcResult.getModelAndView().getModel().get("post");
         assertThat(post.getTitle()).isEqualTo("제목");
@@ -48,7 +48,7 @@ public class PostControllerTest {
 
     @Test
     public void newPost() throws Exception {
-        this.mockMvc.perform(get("/posts/new")).andExpect(status().isOk()).andExpect(view().name("post/new"))
+        this.mvc.perform(get("/posts/new")).andExpect(status().isOk()).andExpect(view().name("post/new"))
                 .andReturn();
     }
 
@@ -57,7 +57,7 @@ public class PostControllerTest {
         given(this.postService.findByIdAndStatus(anyLong(), anyObject()))
                 .willReturn(new Post("제목", "컨텐츠", "마크다운", PostStatus.Y));
 
-        MvcResult mvcResult = this.mockMvc.perform(get("/posts/edit/{id}", 1)).andExpect(status().isOk()).andReturn();
+        MvcResult mvcResult = this.mvc.perform(get("/posts/edit/{id}", 1)).andExpect(status().isOk()).andReturn();
 
         PostDto postDto = (PostDto) mvcResult.getModelAndView().getModel().get("editPost");
         assertThat(postDto.getTitle()).isEqualTo("제목");
@@ -70,7 +70,7 @@ public class PostControllerTest {
         given(this.postService.findByIdAndStatus(1L, PostStatus.Y))
                 .willReturn(new Post("제목", "컨텐츠", "마크다운", PostStatus.Y));
 
-        this.mockMvc.perform(get("/posts/edit/{id}", 2)).andExpect(status().isNotFound());
+        this.mvc.perform(get("/posts/edit/{id}", 2)).andExpect(status().isNotFound());
     }
 
     @Test
@@ -79,13 +79,13 @@ public class PostControllerTest {
 
         given(postService.createPost(any())).willReturn(post);
 
-        this.mockMvc.perform(post("/posts").param("title", "제목1").param("content", "컨텐츠1").param("code", "마크다운1"))
+        this.mvc.perform(post("/posts").param("title", "제목1").param("content", "컨텐츠1").param("code", "마크다운1"))
                 .andExpect(status().isFound()).andExpect(header().string(HttpHeaders.LOCATION, "/posts/1"));
     }
 
     @Test
     public void createPostValid() throws Exception {
-        this.mockMvc.perform(post("/posts").param("title", "제목1").param("code", "마크다운1"))
+        this.mvc.perform(post("/posts").param("title", "제목1").param("code", "마크다운1"))
                 .andExpect(view().name("post/new"));
 
     }
@@ -96,7 +96,7 @@ public class PostControllerTest {
 
         given(postService.updatePost(any(), any())).willReturn(post);
 
-        this.mockMvc
+        this.mvc
                 .perform(post("/posts/{id}/edit", 1L).param("title", "제목2").param("content", "컨텐츠2").param("code",
                         "마크다운2"))
                 .andExpect(status().isFound()).andExpect(header().string(HttpHeaders.LOCATION, "/posts/1"));
@@ -106,7 +106,7 @@ public class PostControllerTest {
     public void deletePost() throws Exception {
         doNothing().when(postService).deletePost(anyLong());
         
-        this.mockMvc.perform(post("/posts/{id}/delete", 1L)).andExpect(status().isFound())
+        this.mvc.perform(post("/posts/{id}/delete", 1L)).andExpect(status().isFound())
                 .andExpect(header().string(HttpHeaders.LOCATION, "/#/"));
 
     }
