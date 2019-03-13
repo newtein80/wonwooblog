@@ -41,14 +41,21 @@ public class Post {
     @Lob
     private String code;
 
-    public Post(){
-
-    }
-
     @Enumerated(EnumType.STRING)
     private PostStatus status;
 
     private LocalDateTime regDate;
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="CATEGORY_ID")
+    private Category category;
+
+    @OneToMany(mappedBy="post", fetch=FetchType.LAZY) // One 의 대상이 되는 객체의 이름 ?????
+    private List<Comment> comments;
+
+    public Post(){
+
+    }
 
     public Post(Long id){
         this.id = id;
@@ -73,14 +80,7 @@ public class Post {
         this.code = code;
         this.status = status;
     }
-
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="CATEGORY_ID")
-    private Category category;
-
-    @OneToMany(mappedBy="post", fetch=FetchType.LAZY) // One 의 대상이 되는 객체의 이름 ?????
-    private List<Comment> comments;
-
+    
     public Post(String title, String content, String code, PostStatus status, Category category){
         this.title = title;
         this.content = content;

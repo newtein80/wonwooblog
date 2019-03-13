@@ -2,6 +2,7 @@ package com.wonwoo.wonwooblog.post;
 
 import javax.validation.Valid;
 
+import com.wonwoo.wonwooblog.category.Category;
 import com.wonwoo.wonwooblog.exception.NotFoundException;
 
 import org.springframework.stereotype.Controller;
@@ -54,6 +55,9 @@ public class PostController {
         
         PostDto createPostDto = new PostDto();
 
+        createPostDto.setCategoryId(post.getCategory().getId());
+        createPostDto.setCategoryName(post.getCategory().getName());
+
         createPostDto.setTitle(post.getTitle());
         createPostDto.setCode(post.getCode());
         createPostDto.setContent(post.getContent());
@@ -64,16 +68,17 @@ public class PostController {
     }
 
     @PostMapping
-    public String createPost(@ModelAttribute @Valid PostDto createPostItem, BindingResult bindingResult, Model model) {
+    public String createPost(@ModelAttribute @Valid PostDto createPost, BindingResult bindingResult, Model model) {
         if(bindingResult.hasErrors()){
             return "post/new";
         }
 
         Post post = new Post(
-            createPostItem.getTitle(),
-            createPostItem.getContent(),
-            createPostItem.getCode(),
-            PostStatus.Y
+            createPost.getTitle(),
+            createPost.getContent(),
+            createPost.getCode(),
+            PostStatus.Y,
+            new Category(createPost.getCategoryId())
         );
 
         Post newPost = postService.createPost(post);
@@ -89,13 +94,15 @@ public class PostController {
             return "post/edit";
         }
         
+        // post도 comment와 마찬가지로 생성시에 연관관계의 category를 넣어 줬다. 연관관계의 주인만이 읽기, 쓰기가 모두 가능하다. 주인이 아닌 곳에서는 읽기만 가능하다.
         postService.updatePost(
             id,
             new Post(
                 updatePostItem.getTitle(),
                 updatePostItem.getContent(),
                 updatePostItem.getCode(),
-                PostStatus.Y
+                PostStatus.Y,
+                new Category(updatePostItem.getCategoryId())
             )
         );
 
