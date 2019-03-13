@@ -46,6 +46,18 @@ public class Post {
 
     private LocalDateTime regDate;
 
+    /**
+     * fetch = FetchType.LAZY 일 경우에는 지연로딩을 한다고 했다.
+     * 지연로딩은 해당 프로퍼티가 사용될 때 실제 쿼리를 날린다.
+     * 하지만 조건이 있는데 트랜잭션 안에서만 그게 가능하다.
+     * 트랜잭션 안에서는 마음껏 사용해도 되지만 트랜잭션 밖에서 사용하면 에러가 발생한다.
+     * 처음 jpa를 사용하면 자주 나오는 exception인 lazyinitializationexception이다.
+     * 이방법을 해결하기 위한것은 opensessioninview 이하 osiv 이라는 것인데 이거 또한 설명할 양이 꽤 된다.
+     * 간단하게 설명하자면 view까지 영속성을 확장 한다는 의미이다.
+     * 하지만 여기서 중요한것은 확장을 한다고 해도 트랜잭션안에서만 변경이 가능하다.
+     * 우리는 아무 설정도 하지 않았는데 lazyinitializationexception이 나오지 않았다.
+     * 그것은 기본적으로 Spring boot는 opensessioninview를 사용하고 있다. 그래서 에러가 나오지 않았던 것이다.
+     */
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="CATEGORY_ID")
     private Category category;

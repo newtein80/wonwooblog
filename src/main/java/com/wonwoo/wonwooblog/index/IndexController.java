@@ -11,30 +11,6 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * IndexController
- * Lombok을 사용하면 생성자도 자동으로 생성할 수 있습니다.
- * @NoArgsConstructor 어노테이션은 파라미터가 없는 기본 생성자를 생성해주고,
- * @AllArgsConstructor 어노테이션은 모든 필드 값을 파라미터로 받는 생성자를 만들어줍니다.
- * 마지막으로 @RequiredArgsConstructor 어노테이션은 final이나 @NonNull인 필드 값만 파라미터로 받는 생성자를 만들어줍니다.
- * 
-        @NoArgsConstructor
-        @RequiredArgsConstructor
-        @AllArgsConstructor
-        public class User {
-            private Long id;
-
-            @NonNull
-            private String username;
-
-            @NonNull
-            private String password;
-
-            private int[] scores;
-        }
-
-        User user1 = new User();
-        User user2 = new User("dale", "1234");
-        User user3 = new User(1L, "dale", "1234", null);
-
  */
 @Controller
 @RequiredArgsConstructor

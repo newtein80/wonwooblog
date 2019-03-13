@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sd="http://www.thymeleaf.org/spring-data"
-      layout:decorator="layouts/main" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    layout:decorator="layouts/main" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
     <meta charset="utf-8" />
@@ -11,8 +11,9 @@
 
     <title>Clean Blog - Contact</title>
 </head>
+
 <body>
-<!-- Main Content -->
+    <!-- Main Content -->
     <div class="container" layout:fragment="content">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -21,7 +22,11 @@
                         <h2 class="post-title" th:text="${post.title}">
                         </h2>
                     </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> <strong th:text="${#temporals.format(post.regDate, 'yyyy-MM-dd')}"> </strong> category <strong th:text="${post.category.name}"></strong></p>
+                    <p class="post-meta">
+                        Posted by <a href="#">Start Bootstrap</a>
+                        <!-- <strong th:text="${#temporals.format(post.regDate, 'yyyy-MM-dd')}"> </strong> -->
+                        category <strong th:text="${post.category.name}"></strong>
+                    </p>
                 </div>
             </div>
         </div>
