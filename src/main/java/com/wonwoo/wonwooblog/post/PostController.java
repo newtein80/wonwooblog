@@ -29,14 +29,14 @@ import lombok.RequiredArgsConstructor;
 public class PostController {
 
     private final PostService postService;
-    // private final CategoryService categoryService;
+    private final CategoryService categoryService;
 
-    // @ModelAttribute("categories")
-    // public List<Category> categories() {
-    //     List<Category> test = categoryService.findAll();
-    //     // return categoryService.findAll();
-    //     return test;
-    // }
+    @ModelAttribute("categories")
+    public List<Category> categories() {
+        List<Category> test = categoryService.findAll();
+        // return categoryService.findAll();
+        return test;
+    }
 
     @GetMapping("/{id}") // @RequestMapping(method = RequestMethod.GET)
     public String findByPost(@PathVariable Long id, Model model) {
@@ -52,7 +52,6 @@ public class PostController {
 
     @GetMapping("/new")
     public String registPost(PostDto postDto) {
-        // model.addAttribute("categories", categoryService.findAll());
         return "post/new";
     }
 

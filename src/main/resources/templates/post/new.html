@@ -44,9 +44,17 @@
         
             <div class="form-group" th:classappend="(${#fields.hasErrors('categoryId')}? ' has-error')">
                 <label class="col-lg-2 control-label">categories</label>
-                <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
+                <!-- <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
                     <label class="btn btn-primary active">
                         <input th:onclick="'changeCategory(\'' + ${category.name} + '\')'" name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" />
+                    </label>
+                </div>
+                <span class="help-block" style="text-align: center;" th:if="${#fields.hasErrors('categoryId')}"
+                        th:errors="*{categoryId}">Incorrect title</span> -->
+                <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
+                    <label class="btn btn-primary active">
+                        <!-- <input th:onclick="'changeCategory(\'' + ${category.name} + '\')'" name="categoryId" type="radio" th:text="${category.name}" th:value="${category.name}" /> -->
+                        <label th:text="${category.name}"></label>
                     </label>
                 </div>
                 <span class="help-block" style="text-align: center;" th:if="${#fields.hasErrors('categoryId')}"
