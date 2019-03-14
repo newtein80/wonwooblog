@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/main}"> -->
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -76,7 +76,14 @@
     
     
     </form>
-
+    <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
+        function deletePost(postId){
+            document.getElementById("post").action = "/posts/"+postId +"/delete";
+            document.getElementById("post").submit();
+        }
+        /*]]>*/
+    </script>
     <script th:src="@{/js/post.js}"></script>
 </body>
 </html>
