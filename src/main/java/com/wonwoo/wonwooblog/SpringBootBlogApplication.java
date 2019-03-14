@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 // import org.springframework.web.bind.annotation.RequestMapping;
 // import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestController;
-import org.thymeleaf.dialect.springdata.SpringDataDialect;
+// import org.thymeleaf.dialect.springdata.SpringDataDialect;
 
 @SpringBootApplication
 // @RestController // Message 전송
@@ -31,9 +31,9 @@ public class SpringBootBlogApplication {
 	/**
 	 * Bean 을 다른 클래스로 빼서 helper 클래스를 만들어서 관리하는 방법 ?????
 	 */
-	@Bean
-    public SpringDataDialect springDataDialect() {
-        return new SpringDataDialect();
-    }
+	// @Bean
+    // public SpringDataDialect springDataDialect() {
+    //     return new SpringDataDialect();
+    // }
 
 }
