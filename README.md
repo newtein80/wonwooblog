@@ -6,7 +6,7 @@
 Spring data jpa - hibernate
 h2 -> Oracle
 Cache : JSR-107 JCache - ehcache
-thymeleaf 2.1
+thymeleaf 2.1 : @{/...} 해줘야 다른 페이지에서도 link를 찾음
 clean-blog - https://startbootstrap.com/template-overviews/clean-blog/
 CI : semaphoreci
 heroku
