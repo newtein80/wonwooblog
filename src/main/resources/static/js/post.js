@@ -5,6 +5,10 @@ function changeCategory(name){
     document.getElementById("categoryName").value = name;
 }
 
+function openGate(name1, name2) {
+    alert(name1 + "_" + name2);
+}
+
 var URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
 navigator.saveBlob = navigator.saveBlob || navigator.msSaveBlob || navigator.mozSaveBlob || navigator.webkitSaveBlob;
 window.saveAs = window.saveAs || window.webkitSaveAs || window.mozSaveAs || window.msSaveAs;

@@ -23,9 +23,11 @@
     <script th:src="@{/markdown/js/rawdeflate.js}"></script>
     <link rel="stylesheet" th:href="@{/codemirror/css/base16-light.css}" />
     <link rel="stylesheet" th:href="@{/codemirror/lib/codemirror.css}" />
-    <link rel="stylesheet" th:href="@{/markdown/css/github-gist.css}" />
+    
     <link rel="stylesheet" th:href="@{/css/post.css}" />
     <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+
+    <link rel="stylesheet" th:href="@{/markdown/css/github-gist.css}" />
 </head>
 
 <body>
@@ -44,19 +46,20 @@
         
             <div class="form-group" th:classappend="(${#fields.hasErrors('categoryId')}? ' has-error')">
                 <label class="col-lg-2 control-label">categories</label>
-                <!-- <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
-                    <label class="btn btn-primary active">
-                        <input th:onclick="'changeCategory(\'' + ${category.name} + '\')'" name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" />
-                    </label>
-                </div>
-                <span class="help-block" style="text-align: center;" th:if="${#fields.hasErrors('categoryId')}"
-                        th:errors="*{categoryId}">Incorrect title</span> -->
                 <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
                     <label class="btn btn-primary active">
-                        <!-- <input th:onclick="'changeCategory(\'' + ${category.name} + '\')'" name="categoryId" type="radio" th:text="${category.name}" th:value="${category.name}" /> -->
-                        <label th:text="${category.name}"></label>
+                        <!-- https://okky.kr/article/535985 -->
+                        <!-- <input th:onclick="|openGate('${category.name}', '${category.name}');|" name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" /> -->
+                        <!-- <input th:onclick="|openGate('${category.name}');|" name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" /> -->
+                        <!-- <input th:onclick="'javascript:openGate(\'' + ${category.name} + '\');''" name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" /> -->
+                        <!-- <input th:onclick="openGate('${category.name}','${category.name}');" name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" /> -->
+                        <!-- <input th:onclick="'openGate(\'' + ${category.name} + '\',\'' + ${category.name} + '\')'" name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" /> -->
+                        <!-- <input th:onclick="'openGate(\'' + ${category.name} + '\')'" name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" /> -->
                     </label>
+                    <!-- <label th:text="${category.name}"></label> -->
+                    <label th:text="${category.id}"></label>
                 </div>
+                <input name="categoryId" type="radio" th:text="default" th:value="1" checked="checked"/>
                 <span class="help-block" style="text-align: center;" th:if="${#fields.hasErrors('categoryId')}"
                         th:errors="*{categoryId}">Incorrect title</span>
     
@@ -64,7 +67,7 @@
             <div class="form-group">
                 <label class="col-lg-2 control-label">category</label>
                 <div class="col-lg-10">
-                    <input type="text" class="form-control" id="categoryName" disabled="disabled"/>
+                    <input type="text" class="form-control" id="categoryName" disabled="disabled" value="1"/>
                 </div>
             </div>
         
