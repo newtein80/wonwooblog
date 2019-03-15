@@ -6,6 +6,9 @@ import javax.validation.Valid;
 
 import com.wonwoo.wonwooblog.category.Category;
 import com.wonwoo.wonwooblog.category.CategoryService;
+import com.wonwoo.wonwooblog.comment.CommentDto;
+import com.wonwoo.wonwooblog.config.Navigation;
+import com.wonwoo.wonwooblog.config.Section;
 import com.wonwoo.wonwooblog.exception.NotFoundException;
 
 import org.springframework.stereotype.Controller;
@@ -26,6 +29,7 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/posts")
+@Navigation(Section.POST)
 public class PostController {
 
     private final PostService postService;
@@ -39,7 +43,7 @@ public class PostController {
     }
 
     @GetMapping("/{id}") // @RequestMapping(method = RequestMethod.GET)
-    public String findByPost(@PathVariable Long id, Model model) {
+    public String findByPost(@PathVariable Long id, Model model, @ModelAttribute CommentDto commentDto) {
         Post post = postService.findByIdAndStatus(id, PostStatus.Y);
 
         if(post == null){

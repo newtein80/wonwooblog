@@ -1,5 +1,7 @@
 package com.wonwoo.wonwooblog.index;
 
+import com.wonwoo.wonwooblog.config.Navigation;
+import com.wonwoo.wonwooblog.config.Section;
 import com.wonwoo.wonwooblog.post.Post;
 import com.wonwoo.wonwooblog.post.PostRepository;
 import com.wonwoo.wonwooblog.post.PostStatus;
@@ -21,6 +23,7 @@ import lombok.RequiredArgsConstructor;
  */
 @Controller
 @RequiredArgsConstructor
+@Navigation(Section.HOME)
 public class IndexController {
 
     private final PostRepository postRepository;

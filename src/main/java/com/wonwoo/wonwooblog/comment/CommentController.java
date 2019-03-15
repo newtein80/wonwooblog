@@ -3,6 +3,7 @@ package com.wonwoo.wonwooblog.comment;
 import javax.validation.Valid;
 
 import com.wonwoo.wonwooblog.post.Post;
+import com.wonwoo.wonwooblog.post.PostRepository;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,12 @@ import lombok.RequiredArgsConstructor;
 public class CommentController {
 
     private final CommentService commentService;
+    private final PostRepository postRepository;
+
+    @ModelAttribute
+    public Post post(@ModelAttribute CommentDto commentDto){
+        return postRepository.findById(commentDto.getPostId()).get();
+    }
 
     @PostMapping
     public String createComment(@ModelAttribute @Valid CommentDto commentDto, BindingResult bindingResult, Model model) {

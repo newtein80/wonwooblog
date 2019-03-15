@@ -2,6 +2,9 @@ package com.wonwoo.wonwooblog.category;
 
 import javax.validation.Valid;
 
+import com.wonwoo.wonwooblog.config.Navigation;
+import com.wonwoo.wonwooblog.config.Section;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +24,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/categories")
+@Navigation(Section.CATEGORY)
 public class CategoryController {
 
     private final CategoryService categoryService;
