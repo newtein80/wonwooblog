@@ -3,12 +3,14 @@ package com.wonwoo.wonwooblog.category;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional; // !!!!!!!!!!!!!!!!!!!!!!!!
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * CategoryService
@@ -16,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @Transactional
 @RequiredArgsConstructor
+@Slf4j
 public class CategoryService {
 
     private final CategoryRepository categoryRepository;
@@ -38,8 +41,10 @@ public class CategoryService {
         }
     }
 
+    @Cacheable("blog.category")
     @Transactional(readOnly=true)
     public Page<Category> findAll(Pageable pageable) {
+        log.info("blog.category cache");
         return categoryRepository.findAll(pageable);
     }
 

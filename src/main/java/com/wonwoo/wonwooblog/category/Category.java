@@ -1,5 +1,6 @@
 package com.wonwoo.wonwooblog.category;
 
+import java.io.Serializable;
 // import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -15,10 +16,12 @@ import javax.persistence.*;
 import com.wonwoo.wonwooblog.post.Post;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 // import lombok.Getter; // 위의 것과 뭐가 다른가 ?????
 // import lombok.Setter;
+import lombok.ToString;
 
 /**
  * Category
@@ -29,7 +32,9 @@ import lombok.Setter;
  */
 @Data
 @Entity
-public class Category {
+@ToString(exclude = {"post"})
+@EqualsAndHashCode(exclude = {"post"})
+public class Category implements Serializable {
 
     // https://www.logicbig.com/tutorials/java-ee-tutorial/jpa/jpa-primary-key.html
     

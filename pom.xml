@@ -84,6 +84,51 @@
 			<!-- <version>2.3.0</version> -->
 		</dependency>
 
+		<!-- https://jeong-pro.tistory.com/170 -->
+		<!-- http://blog.breakingthat.com/2018/03/19/springboot-ehcache-%EC%A0%81%EC%9A%A9/ -->
+		<!-- https://jaehun2841.github.io/2018/11/07/2018-11-04-ehcache-config-for-springboot/#ehcachexml-%EC%9E%91%EC%84%B1-ehcache-%EC%84%A4%EC%A0%95%ED%8C%8C%EC%9D%BC -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+
+		<!-- JSR-107 (JCache) 구현체인 EhCache를 설정 -->
+		<dependency>
+			<groupId>javax.cache</groupId>
+			<artifactId>cache-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+		</dependency>
+
+		<!-- infinispan 캐시 -->
+		<!-- <dependency>
+			<groupId>org.infinispan</groupId>
+			<artifactId>infinispan-spring4-embedded</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.infinispan</groupId>
+			<artifactId>infinispan-jcache</artifactId>
+		</dependency> -->
+
+		<!-- hazelcast -->
+		<!-- <dependency>
+			<groupId>com.hazelcast</groupId>
+			<artifactId>hazelcast</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.hazelcast</groupId>
+			<artifactId>hazelcast-spring</artifactId>
+		</dependency> -->
+
+		<!-- Caffeine -->
+		<!-- <dependency>
+			<groupId>com.github.ben-manes.caffeine</groupId>
+			<artifactId>caffeine</artifactId>
+		</dependency> -->
+
 	</dependencies>
 
 	<build>
