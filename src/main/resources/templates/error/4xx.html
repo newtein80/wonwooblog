@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/main}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title th:text="'Ooops, ' + ${error}">Ooops, page not found</title>
+    <style type="text/css">
+        .wrapper {
+            width: 100%;
+            text-align: center;
+        }
+        .big {
+            font-size: 100%
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper" layout:fragment="content">
+        <div class="big">
+            <h1>Custom Error Page</h1>
+            <br />
+            <h2 th:text="${error}"></h2>
+        </div>
+    </div>
+</body>
+
+</html>
