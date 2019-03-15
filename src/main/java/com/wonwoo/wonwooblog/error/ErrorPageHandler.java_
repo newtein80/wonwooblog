@@ -14,7 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ErrorPageHandler implements ErrorController {
 
-    @RequestMapping("/error")
+    /**
+     *
+     */
+
+    private static final String ERROR = "/error";
+
+    @RequestMapping(ERROR)
     public String handleError(HttpServletRequest request) {
 
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
@@ -32,12 +38,12 @@ public class ErrorPageHandler implements ErrorController {
                 return "error";
             }
         }
-        
+
         return "error";
     }
 
     @Override
     public String getErrorPath() {
-        return "/error";
+        return ERROR;
     }
 }

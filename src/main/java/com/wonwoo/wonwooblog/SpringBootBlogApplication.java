@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 // @RestController // Message 전송
 @EntityScan(basePackageClasses = {SpringBootBlogApplication.class, Jsr310JpaConverters.class})
-@EnableAutoConfiguration(exclude = {ErrorMvcAutoConfiguration.class})
+// @EnableAutoConfiguration(exclude = {ErrorMvcAutoConfiguration.class})
 @EnableCaching // https://jeong-pro.tistory.com/170
 public class SpringBootBlogApplication {
 
