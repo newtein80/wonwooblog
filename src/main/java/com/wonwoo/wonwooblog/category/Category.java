@@ -38,6 +38,8 @@ public class Category implements Serializable {
 
     // https://www.logicbig.com/tutorials/java-ee-tutorial/jpa/jpa-primary-key.html
     
+    private static final long serialVersionUID = 7501653724348655218L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)// @GeneratedValue
     private Long id;
