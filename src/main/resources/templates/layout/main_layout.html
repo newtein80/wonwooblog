@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<!-- Page Header Tag-->
+<head th:replace="fragments/config :: configFragment"></head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- Header Bar -->
+        <header th:replace="fragments/header :: headerFragment"></header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside th:replace="fragments/side :: sideFragment"></aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div layout:fragment="content"></div>
+        <!-- Footer Bar -->
+        <footer th:replace="fragments/footer:: footerFragment"></footer>
+        <!-- Control Sidebar -->
+        <aside th:replace="fragments/side2 :: side2Fragment"></aside>
+        <!-- Add the sidebar's background. This div must be placed
+            immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+</body>
+
+</html>

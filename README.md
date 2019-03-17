@@ -2,6 +2,10 @@
 
 https://jeong-pro.tistory.com/170
 
+https://adminlte.io/themes/AdminLTE/
+
+<div class="widget-user-header bg-black" style="background: url('../dist/img/photo1.png') center center;">
+
 Spring data jpa - hibernate
 h2 -> Oracle
 Cache : JSR-107 JCache - ehcache
