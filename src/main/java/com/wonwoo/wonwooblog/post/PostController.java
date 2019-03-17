@@ -56,7 +56,8 @@ public class PostController {
 
     @GetMapping("/new")
     public String registPost(PostDto postDto) {
-        return "post/new";
+        // return "post/new";
+        return "pages/blog/post/new";
     }
 
     @GetMapping("/edit/{id}")

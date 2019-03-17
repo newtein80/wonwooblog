@@ -28,15 +28,17 @@
       <!-- Main content -->
       <section class="content">
         <div class="row">
-          <ul class="pager">
-              <li class="next">
-                  <a th:href="@{/posts/new}">write</a>
-              </li>
-          </ul>
+          <div class="col-xs-12">
+            <div class="box-header">
+              <a class="btn btn-primary pull-right" th:href="@{/posts/new}">write</a>
+            </div>
+          </div>
         </div>
+
         <div class="row">
           <div class="col-xs-12">
             <div class="box">
+
               <div class="box-header">
                 <h3 class="box-title">Responsive Hover Table</h3>
                 <div class="box-tools">
@@ -73,9 +75,11 @@
                 </table>
               </div>
               <!-- /.box-body -->
+
             </div>
             <!-- /.box -->
           </div>
+          
         </div>
       </section>
     </div>

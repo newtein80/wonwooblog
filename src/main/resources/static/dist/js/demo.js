@@ -208,13 +208,13 @@ $(function () {
         + '<p>Activate the boxed layout</p>'
         + '</div>'
         // Sidebar Toggle
-        + '<div class="form-group">'
-        + '<label class="control-sidebar-subheading">'
-        + '<input type="checkbox"data-layout="sidebar-collapse"class="pull-right"/> '
-        + 'Toggle Sidebar'
-        + '</label>'
-        + '<p>Toggle the left sidebar\'s state (open or collapse)</p>'
-        + '</div>'
+        // + '<div class="form-group">'
+        // + '<label class="control-sidebar-subheading">'
+        // + '<input type="checkbox"data-layout="sidebar-collapse"class="pull-right"/> '
+        // + 'Toggle Sidebar'
+        // + '</label>'
+        // + '<p>Toggle the left sidebar\'s state (open or collapse)</p>'
+        // + '</div>'
         // Sidebar mini expand on hover toggle
         + '<div class="form-group">'
         + '<label class="control-sidebar-subheading">'
@@ -232,13 +232,13 @@ $(function () {
         + '<p>Toggle between slide over content and push content effects</p>'
         + '</div>'
         // Control Sidebar Skin Toggle
-        + '<div class="form-group">'
-        + '<label class="control-sidebar-subheading">'
-        + '<input type="checkbox"data-sidebarskin="toggle"class="pull-right"/> '
-        + 'Toggle Right Sidebar Skin'
-        + '</label>'
-        + '<p>Toggle between dark and light skins for the right sidebar</p>'
-        + '</div>'
+        // + '<div class="form-group">'
+        // + '<label class="control-sidebar-subheading">'
+        // + '<input type="checkbox"data-sidebarskin="toggle"class="pull-right"/> '
+        // + 'Toggle Right Sidebar Skin'
+        // + '</label>'
+        // + '<p>Toggle between dark and light skins for the right sidebar</p>'
+        // + '</div>'
     )
     var $skinsList = $('<ul />', {'class': 'list-unstyled clearfix'})
 
