@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<body th:fragment="mainBody" class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- <th:block layout:fragment="content_body"></th:block>
+        <th:block th:include="fragments/main/main_footer"></th:block> -->
+
+        <!-- Header Bar -->
+        <header th:replace="fragments/header :: headerFragment"></header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside th:replace="fragments/side :: sideFragment"></aside>
+        <!-- Content Wrapper. Contains page content -->
+        <!-- <div layout:fragment="content"></div> -->
+        <th:block layout:fragment="content_body"></th:block>
+        <!-- Footer Bar -->
+        <footer th:replace="fragments/footer :: footerFragment"></footer>
+        <!-- Control Sidebar -->
+        <aside th:replace="fragments/side2 :: side2Fragment"></aside>
+        <!-- Add the sidebar's background. This div must be placed
+            immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+
+    <!-- <th:block th:include="fragments/common/c_body_script"></th:block> -->
+
+    <!-- jQuery 3 -->
+    <script th:src="@{/bower_components/jquery/dist/jquery.min.js}"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script th:src="@{/bower_components/bootstrap/dist/js/bootstrap.min.js}"></script>
+    <!-- Slimscroll -->
+    <script th:src="@{/bower_components/jquery-slimscroll/jquery.slimscroll.min.js}"></script>
+    <!-- FastClick -->
+    <script th:src="@{/bower_components/fastclick/lib/fastclick.js}"></script>
+    <!-- AdminLTE App -->
+    <script th:src="@{/dist/js/adminlte.min.js}"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script th:src="@{/bower_components/jquery-ui/jquery-ui.min.js}"></script>
+    <!-- Sparkline -->
+    <script th:src="@{/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js}"></script>
+    <!-- jvectormap -->
+    <script th:src="@{/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js}"></script>
+    <script th:src="@{/plugins/jvectormap/jquery-jvectormap-world-mill-en.js}"></script>
+    <!-- jQuery Knob Chart -->
+    <script th:src="@{/bower_components/jquery-knob/dist/jquery.knob.min.js}"></script>
+    <!-- daterangepicker -->
+    <script th:src="@{/bower_components/moment/min/moment.min.js}"></script>
+    <script th:src="@{/bower_components/bootstrap-daterangepicker/daterangepicker.js}"></script>
+    <!-- datepicker -->
+    <script th:src="@{/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js}"></script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <script th:src="@{/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js}"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script th:src="@{/dist/js/demo.js}"></script>
+    <!-- Morris.js charts -->
+    <script th:src="@{/bower_components/raphael/raphael.min.js}"></script>
+    <script th:src="@{/bower_components/morris.js/morris.min.js}"></script>
+
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script th:src="@{/dist/js/pages/dashboard.js}"></script>
+    <!-- <script th:src="@{/dist/js/pages/dashboard2.js}"></script> -->
+
+    <!-- DataTables -->
+    <!-- <script src="/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script> -->
+    
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+
+    <!-- page script -->
+    <!-- 사용자 스크립트 영역이 들어감 -->
+    <th:block layout:fragment="custom_js"></th:block>
+
+</body>
+</html>
