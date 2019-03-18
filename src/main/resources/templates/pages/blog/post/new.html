@@ -87,13 +87,13 @@
 
                                     <div class="form-group">
                                         <div class="col-md-6">
-                                            <div id="in">
+                                            <div id="in" style="height: 450px;">
                                                 <input type="hidden" id="content" name="content" th:field="*{content}"/>
                                                 <input type="hidden" id="code" th:field="*{code}" />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div id="out">
+                                            <div id="out" style="height: 450px;">
                                             </div>
                                             <div id="messageContent">
                                                 <label for="content" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></label>
