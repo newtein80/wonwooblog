@@ -3,7 +3,9 @@
 AdminLte 오류나는 메뉴들
 Layout Options -- All
 Flot
-Editor
+Editor - CK Editor
+
+https://gs.saro.me/dev?page=3&tn=481
 
 https://www.youtube.com/watch?v=LLnBVsEqSSE
 
@@ -138,3 +140,50 @@ callSuper 속성을 통해 equals와 hashCode 메소드 자동 생성 시 부모
 클래스 레벨에서 @Data 어노테이션을 붙여주면, 모든 필드를 대상으로 접근자와 설정자가 자동으로 생성되고,
 final 또는 @NonNull 필드 값을 파라미터로 받는 생성자가 만들어지며,
 toStirng, equals, hashCode 메소드가 자동으로 만들어집니다.
+
+
+
+
+
+spring Boot blog
+-----
+
+1. [spring-boot] 블로그를 만들자 (1)
+2. [spring-boot] 블로그를 만들자. (2) JPA
+3. [spring-boot] 블로그를 만들자. (3) Category 와 Comment
+4. [spring-boot] 블로그를 만들자. (4) thymeleaf
+5. [spring-boot] 블로그를 만들자. (5) markdown, catetory
+
+### java
+```java
+class Main {
+  public static void main(String[] args){
+    System.out.println("Spring Boot Blog");
+  }
+}
+```
+
+### xml
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+```
+
+### js
+```js
+function hello(){
+    console.log("hello world");
+}
+```
+### css
+
+```css
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+```
