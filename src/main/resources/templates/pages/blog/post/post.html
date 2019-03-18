@@ -30,45 +30,103 @@
             <section class="content">
                 <div class="row">
                     <div class="col-md-12">
+                        <!-- Box Comment -->
                         <div class="box box-info">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Post View - Horizontal Form</h3>
+                                <div class="user-block">
+                                    <img class="img-circle" th:src="@{/dist/img/user1-128x128.jpg}" alt="User Image">
+                                    <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
+                                    <span class="description">Shared publicly - 7:30 PM Today</span>
+                                </div>
+                                <!-- /.user-block -->
+                                <div class="box-tools">
+                                    <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Mark as read">
+                                    <i class="fa fa-circle-o"></i></button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i
+                                        class="fa fa-times"></i></button>
+                                </div>
+                            <!-- /.box-tools -->
                             </div>
                             <!-- /.box-header -->
-                            <!-- form start -->
-                            <form class="form-horizontal">
-                                <div class="box-body">
-                                    <div class="form-group">
-                                        <label for="title" class="col-md-1 control-label">Title</label>
-                                        <div class="col-md-11">
-                                        <!-- <input type="email" class="form-control" id="inputEmail3" placeholder="Email"> -->
-                                            <h4 class="form-control" th:text="${post.title}">
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputPassword3" class="col-md-1 control-label">Content</label>
+
+                            <div class="box-body">
+                            <!-- post text -->
+                                <h3 th:text="${post.title}">
+                                </h3>
+                
+                                <!-- Attachment -->
+                                <div class="attachment-block clearfix">
+                                    <!-- <img class="attachment-img" th:src="@{/dist/img/photo1.png}" alt="Attachment Image"> -->
                     
-                                        <div class="col-md-11">
-                                            <!-- <input type="password" class="form-control" id="inputPassword3" placeholder="Password"> -->
-                                            <div th:utext="${post.content}">
-                                            </div>
+                                    <!-- <div class="attachment-pushed"> -->
+                                    <!-- <h4 class="attachment-heading"><a href="http://www.lipsum.com/">Lorem ipsum text generator</a></h4> -->
+                    
+                                    <div class="attachment-text">
+                                        <div th:utext="${post.content}">
                                         </div>
                                     </div>
+                                    <!-- /.attachment-text -->
+                                    <!-- </div> -->
+                                    <!-- /.attachment-pushed -->
                                 </div>
-                                <!-- /.box-body -->
-                                <div class="box-footer">
-                                    <a class="btn btn-primary" th:href="@{/}">Go List</a>
-                                    <!-- <input class="btn btn-primary pull-right" type="button" value="Save" onclick="saveAsHtml()"/> -->
-                                    <a class="btn btn-primary pull-right" th:href="@{'/posts/edit/' + ${post.id}}">edit</a>
+                                <!-- /.attachment-block -->
+
+                                <!-- Social sharing buttons -->
+                                <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
+                                <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
+                                <span class="pull-right text-muted">45 likes - 2 comments</span>
+                            </div>
+
+                            <div class="box-footer">
+                                <a class="btn btn-primary" th:href="@{/}">Go List</a>
+                                <!-- <input class="btn btn-primary pull-right" type="button" value="Save" onclick="saveAsHtml()"/> -->
+                                <a class="btn btn-primary pull-right" th:href="@{'/posts/edit/' + ${post.id}}">edit</a>
+                            </div>
+                            <!-- /.box-body -->
+
+                            <div class="box-footer box-comments">
+                                <div class="box-comment" th:each="comment : ${post.comments}">
+                                    <!-- User image -->
+                                    <img class="img-circle img-sm" th:src="@{/dist/img/user3-128x128.jpg}" alt="User Image">
+
+                                    <div class="comment-text">
+                                        <span class="username">
+                                            Maria Gonzales
+                                            <span class="text-muted pull-right" th:text="${#temporals.format(comment.regDate, 'yyyy-MM-dd')}">comment.regDate</span>
+                                        </span><!-- /.username -->
+                                        <span th:onclick="'alertTest(\'' + ${comment.post.id} + '\');'" class="glyphicon glyphicon-remove" ></span>
+                                        <p th:text="${comment.content}">comment.content</p>
+                                    </div>
+                                    <!-- /.comment-text -->
                                 </div>
-                                <!-- /.box-footer -->
-                            </form>
+                            </div>
+
+                            <!-- /.box-footer -->
+                            <div class="box-footer">
+                            
+                                <form th:action="@{/comments}" th:object="${commentDto}" method="post" th:id="comment">
+                                    <img class="img-responsive img-circle img-sm" th:src="@{/dist/img/user4-128x128.jpg}" alt="Alt Text">
+                                    <input type="hidden" th:value="${post.id}" id="postId" name="postId" />
+                                    <!-- .img-push is used to add margin to elements next to floating images -->
+                                    <div class="input-group input-group-sm" style="margin-left: 40px;" th:classappend="(${#fields.hasErrors('content')}? ' has-error')">
+                                        <input type="text" class="form-control" id="content" name="content" placeholder="content"/>
+                                        <span class="help-block" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span>
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-success btn-flat">Submit</button>
+                                        </span>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <!-- /.box-footer -->
                         </div>
+                        <!-- /.box -->
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row" style="display: none;">
                     <div class="col-md-12">
                         <div class="box-header with-border">
                             <h4 class="box-title">Leave a Comment</h4>
@@ -77,24 +135,27 @@
                         <form th:action="@{/comments}" th:object="${commentDto}" method="post" th:id="comment">
                             <input type="hidden" th:value="${post.id}" id="postId" name="postId" />
                             <div class="well" th:classappend="(${#fields.hasErrors('content')}? ' has-error')">
-                                <input type="text" class="form-control input-lg" id="content" name="content" placeholder="content"/>
+                                <input type="text" class="form-control input-sm" id="content" name="content" placeholder="content"/>
                                 <span class="help-block" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span>
-                                <ul class="pager" style="text-align:right;" >
+                                <!-- <ul class="pager" style="text-align:right;" >
                                     <li class="next">
                                         <button  type="submit" class="btn btn-primary">Submit</button>
                                     </li>
-                                </ul>
+                                </ul> -->
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                </div>
                             </div>
                         </form>
 
+                        <!-- Display : none -->
                         <form th:object="${commentDto}" th:action="@{/}" method="post" th:id="deleteComment">
                             <ul class="media-list comments" th:each="comment : ${post.comments}">
                                 <li class="media">
                                     <div class="media-body">
-                                        <h5 class="media-heading pull-left">wonwoo</h5>
+                                        <h5 class="media-heading pull-left">"Not yet implemented"</h5>
                                         <div class="comment-info pull-left">
-                                            <!-- <div class="btn-default btn-xs" th:text="${#temporals.format(comment.regDate, 'yyyy-MM-dd')}"> -->
-                                            <div class="btn-default btn-xs" th:text="HardCodingText">
+                                            <div class="btn-default btn-xs" th:text="${#temporals.format(comment.regDate, 'yyyy-MM-dd')}">
                                                 <i class="fa fa-clock-o"></i> Posted 3 weeks ago
                                             </div>
                                         </div>

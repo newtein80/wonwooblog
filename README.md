@@ -5,6 +5,8 @@ Layout Options -- All
 Flot
 Editor - CK Editor
 
+https://cyberx.tistory.com/132
+
 https://gs.saro.me/dev?page=3&tn=481
 
 https://www.youtube.com/watch?v=LLnBVsEqSSE
@@ -12,6 +14,8 @@ https://www.youtube.com/watch?v=LLnBVsEqSSE
 https://jeong-pro.tistory.com/170
 
 https://adminlte.io/themes/AdminLTE/
+
+https://gurumee92.tistory.com/76
 
 <div class="widget-user-header bg-black" style="background: url('../dist/img/photo1.png') center center;">
 
