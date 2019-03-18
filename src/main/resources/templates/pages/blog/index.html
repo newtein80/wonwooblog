@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko"
-  xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:th="http://www.thymeleaf.org"
-  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate="~{layout/main_layout}">
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{layout/main_layout}">
 
 <th:block layout:fragment="html_head">
 <title>Blog List</title>
@@ -109,6 +109,10 @@
 </th:block>
 
 <th:block layout:fragment="custom_js">
+  <script type="text/javascript" th:inline="javascript">
+  /*<![CDATA[*/
+  /*]]>*/
+  </script>
 </th:block>
 
 </html>
