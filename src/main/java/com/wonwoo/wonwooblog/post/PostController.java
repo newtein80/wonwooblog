@@ -51,7 +51,7 @@ public class PostController {
         }
 
         model.addAttribute("post", post);
-        return "post/post";
+        return "pages/blog/post/post";
     }
 
     @GetMapping("/new")

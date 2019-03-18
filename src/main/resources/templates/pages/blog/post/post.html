@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/main_layout}">
+
+<th:block layout:fragment="html_head">
+    <title>Blog Detail View</title>
+</th:block>
+
+<th:block layout:fragment="add_lib_css">
+    <link rel="stylesheet" th:href="@{/blog/markdown/css/github-gist.css}" />
+</th:block>
+
+<th:block layout:fragment="custom_css">
+</th:block>
+
+<th:block layout:fragment="content_body">
+    <div class="wrapper">
+
+        <!-- Header Bar -->
+        <!-- Left side column. contains the logo and sidebar -->
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <!-- <section class="content-header">
+      
+            </section> -->
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box box-info">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Post View - Horizontal Form</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <!-- form start -->
+                            <form class="form-horizontal">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="title" class="col-md-1 control-label">Title</label>
+                                        <div class="col-md-11">
+                                        <!-- <input type="email" class="form-control" id="inputEmail3" placeholder="Email"> -->
+                                            <h4 class="form-control" th:text="${post.title}">
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPassword3" class="col-md-1 control-label">Content</label>
+                    
+                                        <div class="col-md-11">
+                                            <!-- <input type="password" class="form-control" id="inputPassword3" placeholder="Password"> -->
+                                            <div th:utext="${post.content}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <a class="btn btn-primary" th:href="@{/}">Go List</a>
+                                    <!-- <input class="btn btn-primary pull-right" type="button" value="Save" onclick="saveAsHtml()"/> -->
+                                    <a class="btn btn-primary pull-right" th:href="@{'/posts/edit/' + ${post.id}}">edit</a>
+                                </div>
+                                <!-- /.box-footer -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box-header with-border">
+                            <h4 class="box-title">Leave a Comment</h4>
+                        </div>
+                        
+                        <form th:action="@{/comments}" th:object="${commentDto}" method="post" th:id="comment">
+                            <input type="hidden" th:value="${post.id}" id="postId" name="postId" />
+                            <div class="well" th:classappend="(${#fields.hasErrors('content')}? ' has-error')">
+                                <input type="text" class="form-control input-lg" id="content" name="content" placeholder="content"/>
+                                <span class="help-block" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span>
+                                <ul class="pager" style="text-align:right;" >
+                                    <li class="next">
+                                        <button  type="submit" class="btn btn-primary">Submit</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+
+                        <form th:object="${commentDto}" th:action="@{/}" method="post" th:id="deleteComment">
+                            <ul class="media-list comments" th:each="comment : ${post.comments}">
+                                <li class="media">
+                                    <div class="media-body">
+                                        <h5 class="media-heading pull-left">wonwoo</h5>
+                                        <div class="comment-info pull-left">
+                                            <!-- <div class="btn-default btn-xs" th:text="${#temporals.format(comment.regDate, 'yyyy-MM-dd')}"> -->
+                                            <div class="btn-default btn-xs" th:text="HardCodingText">
+                                                <i class="fa fa-clock-o"></i> Posted 3 weeks ago
+                                            </div>
+                                        </div>
+                                        <!-- <span style="top: 18px;" th:onclick="'deleteComment(\'' + ${comment.post.id} + '\', \'' + ${comment.id} + '\');'" class="glyphicon glyphicon-remove" ></span> -->
+                                        <span style="top: 18px;" th:onclick="'alertTest(\'' + ${comment.post.id} + '\');'" class="glyphicon glyphicon-remove" ></span>
+                                        <p class="well" th:text="${comment.content}">This is really awesome snippet!</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- /.content-wrapper -->
+
+        <!-- Footer Bar -->
+        <!-- Control Sidebar -->
+
+        <!-- Add the sidebar's background. This div must be placed
+            immediately after the control sidebar -->
+    </div>
+<!-- ./wrapper -->
+</th:block>
+
+<th:block layout:fragment="add_lib_js">
+</th:block>
+
+<th:block layout:fragment="custom_js">
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    function deleteComment(postId, commentId) {
+        document.getElementById("deleteComment").action = "/comments/" + postId + "/" + commentId;
+        document.getElementById("deleteComment").submit();
+    }
+
+    function alertTest(testText) {
+        alert(testText);
+    }
+/*]]>*/
+</script>
+</th:block>
+
+</html>

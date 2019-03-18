@@ -103,8 +103,9 @@
                                 </fieldset>
                             </div>
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-default">Cancel</button>
-                                <input class="btn btn-primary" type="button" value="Submit" onclick="saveAsHtml()"/>
+                                <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+                                <a class="btn btn-primary" th:href="@{/}">Cancel</a>
+                                <input class="btn btn-primary pull-right" type="button" value="Save" onclick="saveAsHtml()"/>
                             </div>
                         </form>
                     </div>

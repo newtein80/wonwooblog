@@ -55,6 +55,6 @@ public class IndexController {
 
         model.addAttribute("posts", postRepository.findAll(post, pageable));
         // return "index";
-        return "pages/blog/index";
+        return "pages/blog/post/index";
     }
 }
