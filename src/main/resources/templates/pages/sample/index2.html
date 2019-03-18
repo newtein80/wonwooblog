@@ -10,6 +10,8 @@ layout:decorate="~{layout/main_layout}">
 </th:block>
 
 <th:block layout:fragment="add_lib_css">
+<!-- jvectormap -->
+<link rel="stylesheet" th:href="@{/bower_components/jvectormap/jquery-jvectormap.css}">
 </th:block>
 
 <th:block layout:fragment="custom_css">
@@ -877,6 +879,17 @@ layout:decorate="~{layout/main_layout}">
 </th:block>
 
 <th:block layout:fragment="add_lib_js">
+<!-- Sparkline -->
+<script th:src="@{/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js}"></script>
+<!-- jvectormap -->
+<script th:src="@{/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js}"></script>
+<script th:src="@{/plugins/jvectormap/jquery-jvectormap-world-mill-en.js}"></script>
+<!-- Slimscroll -->
+<script th:src="@{/bower_components/jquery-slimscroll/jquery.slimscroll.min.js}"></script>
+<!-- ChartJS -->
+<script th:src="@{/bower_components/chart.js/Chart.min.js}"></script>
+
+<script th:src="@{/dist/js/pages/dashboard2.js}"></script>
 </th:block>
 
 <th:block layout:fragment="custom_js">

@@ -10,6 +10,8 @@ layout:decorate="~{layout/main_layout}">
 </th:block>
 
 <th:block layout:fragment="add_lib_css">
+<!-- bootstrap wysihtml5 - text editor -->
+<link rel="stylesheet" th:href="@{/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css}">
 </th:block>
 
 <th:block layout:fragment="custom_css">
@@ -112,6 +114,8 @@ layout:decorate="~{layout/main_layout}">
 <th:block layout:fragment="add_lib_js">
 <!-- CK Editor -->
 <script th:src="@{/bower_components/ckeditor/ckeditor.js}"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script th:src="@{/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js}"></script>
 </th:block>
 
 <th:block layout:fragment="custom_js">

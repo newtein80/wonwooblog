@@ -12,6 +12,8 @@ layout:decorate="~{layout/main_layout}">
 <th:block layout:fragment="add_lib_css">
 <!-- iCheck -->
 <link rel="stylesheet" th:href="@{/plugins/iCheck/flat/blue.css}">
+<!-- bootstrap wysihtml5 - text editor -->
+<link rel="stylesheet" th:href="@{/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css}">
 </th:block>
 
 <th:block layout:fragment="custom_css">
@@ -167,8 +169,12 @@ layout:decorate="~{layout/main_layout}">
 </th:block>
 
 <th:block layout:fragment="add_lib_js">
+<!-- Slimscroll -->
+<script th:src="@{/bower_components/jquery-slimscroll/jquery.slimscroll.min.js}"></script>
 <!-- iCheck -->
 <script th:src="@{/plugins/iCheck/icheck.min.js}"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script th:src="@{/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js}"></script>
 </th:block>
 
 <th:block layout:fragment="custom_js">

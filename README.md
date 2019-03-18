@@ -1,13 +1,11 @@
 # http://wonwoo.ml/index.php/post/1143
 
 AdminLte 오류나는 메뉴들
-DashBoard 2
 Layout Options -- All
 Flot
-Slider
-Advaced - timepicker
 Editor
 
+https://www.youtube.com/watch?v=LLnBVsEqSSE
 
 https://jeong-pro.tistory.com/170
 

@@ -10,6 +10,10 @@ layout:decorate="~{layout/main_layout}">
 </th:block>
 
 <th:block layout:fragment="add_lib_css">
+<!-- Date Picker -->
+<link rel="stylesheet" th:href="@{/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css}">
+<!-- Daterange picker -->
+<link rel="stylesheet" th:href="@{/bower_components/bootstrap-daterangepicker/daterangepicker.css}">
 <!-- Bootstrap Color Picker -->
 <link rel="stylesheet" th:href="@{/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css}">
 <!-- Bootstrap time Picker -->
@@ -458,8 +462,17 @@ layout:decorate="~{layout/main_layout}">
 <script th:src="@{/plugins/input-mask/jquery.inputmask.js}"></script>
 <script th:src="@{/plugins/input-mask/jquery.inputmask.date.extensions.js}"></script>
 <script th:src="@{/plugins/input-mask/jquery.inputmask.extensions.js}"></script>
+<!-- daterangepicker -->
+<script th:src="@{/bower_components/moment/min/moment.min.js}"></script>
+<script th:src="@{/bower_components/bootstrap-daterangepicker/daterangepicker.js}"></script>
+<!-- datepicker -->
+<script th:src="@{/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js}"></script>
 <!-- bootstrap color picker -->
 <script th:src="@{/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js}"></script>
+<!-- bootstrap time picker -->
+<script th:src="@{/plugins/timepicker/bootstrap-timepicker.min.js}"></script>
+<!-- Slimscroll -->
+<script th:src="@{/bower_components/jquery-slimscroll/jquery.slimscroll.min.js}"></script>
 <!-- iCheck 1.0.1 -->
 <script th:src="@{/plugins/iCheck/icheck.min.js}"></script>
 </th:block>

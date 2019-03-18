@@ -10,6 +10,8 @@ layout:decorate="~{layout/main_layout}">
 </th:block>
 
 <th:block layout:fragment="add_lib_css">
+<!-- DataTables -->
+<link th:href="@{/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css}" rel="stylesheet">
 </th:block>
 
 <th:block layout:fragment="custom_css">
@@ -941,6 +943,8 @@ layout:decorate="~{layout/main_layout}">
 <!-- DataTables -->
 <script th:src="@{/bower_components/datatables.net/js/jquery.dataTables.min.js}"></script>
 <script th:src="@{/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js}"></script>
+<!-- Slimscroll -->
+<script th:src="@{/bower_components/jquery-slimscroll/jquery.slimscroll.min.js}"></script>
 </th:block>
 
 <th:block layout:fragment="custom_js">
