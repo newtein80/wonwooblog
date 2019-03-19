@@ -45,10 +45,10 @@ public class CategoryService {
         oldCategory.setName(category.getName());
     }
 
-    @Cacheable("blog.category")
+    // @Cacheable("blog.category")
     @Transactional(readOnly=true)
     public Page<Category> findAll(Pageable pageable) {
-        log.info("blog.category cache");
+        // log.info("blog.category cache");
         return categoryRepository.findAll(pageable);
     }
 

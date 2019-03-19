@@ -40,10 +40,16 @@ public class CategoryController {
         return "pages/blog/category/new";
     }
 
+    @GetMapping("/{id}") // @RequestMapping(method = RequestMethod.GET)
+    public String findByPost(@PathVariable Long id, Model model) {
+        model.addAttribute("categoryDto", categoryService.findOne(id));
+        return "pages/blog/category/category";
+    }
+
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("categoryDto", categoryService.findOne(id));
-        return "category/edit";
+        return "pages/blog/category/edit";
     }
 
     @PostMapping // mapping url 이 없지만 기본 매핑 url(Controller에 매핑된 url)로 매핑됨. 단, list와 다른점은 method type이 다름
@@ -59,10 +65,10 @@ public class CategoryController {
     public String modifyCategory(@PathVariable Long id, @ModelAttribute @Valid CategoryDto categoryDto,
             BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "category/edit";
+            return "pages/blog/category/edit";
         }
         categoryService.updateCategory(new Category(id, categoryDto.getName()));
-        return "redirect:/categories";
+        return "redirect:/categories/" + id;
     }
 
     @PostMapping("/{id}/delete")

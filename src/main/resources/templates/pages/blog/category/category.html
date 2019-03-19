@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/main_layout}">
+
+<th:block layout:fragment="html_head">
+    <title>Blog Detail View</title>
+</th:block>
+
+<th:block layout:fragment="add_lib_css">
+    <link rel="stylesheet" th:href="@{/blog/markdown/css/github-gist.css}" />
+</th:block>
+
+<th:block layout:fragment="custom_css">
+</th:block>
+
+<th:block layout:fragment="content_body">
+    <div class="wrapper">
+
+        <!-- Header Bar -->
+        <!-- Left side column. contains the logo and sidebar -->
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <!-- <section class="content-header">
+      
+            </section> -->
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Box Comment -->
+                        <div class="box box-info">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Horizontal Form</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <!-- form start -->
+                            <form class="form-horizontal">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-md-1 control-label">Title</label>
+                        
+                                        <div class="col-md-11">
+                                            <input type="text" th:field="${categoryDto.name}" readonly="readonly" class="form-control" id="name" name="name" placeholder="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPassword3" class="col-md-1 control-label">Reg Date</label>
+                        
+                                        <div class="col-md-11">
+                                            <input type="text" th:field="${categoryDto.regDate}" readonly="readonly" class="form-control" id="regDate" name="regDate" placeholder="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <!-- <button type="submit" class="btn btn-default">Cancel</button>
+                                    <button type="submit" class="btn btn-info pull-right">Sign in</button> -->
+                                    <a class="btn btn-primary" th:href="@{/categories}">Go List</a>
+                                    <!-- <input class="btn btn-primary pull-right" type="button" value="Save" onclick="saveAsHtml()"/> -->
+                                    <a class="btn btn-primary pull-right" th:href="@{'/categories/' + ${categoryDto.id} + '/edit'}">edit</a>
+                                </div>
+                                <!-- /.box-footer -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- /.content-wrapper -->
+
+        <!-- Footer Bar -->
+        <!-- Control Sidebar -->
+
+        <!-- Add the sidebar's background. This div must be placed
+            immediately after the control sidebar -->
+    </div>
+<!-- ./wrapper -->
+</th:block>
+
+<th:block layout:fragment="add_lib_js">
+</th:block>
+
+<th:block layout:fragment="custom_js">
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    
+    /*]]>*/
+</script>
+</th:block>
+
+</html>
