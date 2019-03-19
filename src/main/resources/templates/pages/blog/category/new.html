@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{layout/main_layout}">
+
+<th:block layout:fragment="html_head">
+<title>Blog List</title>
+</th:block>
+
+<th:block layout:fragment="add_lib_css">
+</th:block>
+
+<th:block layout:fragment="custom_css">
+</th:block>
+
+<th:block layout:fragment="content_body">
+<div class="wrapper">
+
+<!-- Header Bar -->
+<!-- Left side column. contains the logo and sidebar -->
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            Simple Tables
+            <small>preview of simple tables</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Tables</a></li>
+            <li class="active">Simple</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Quick Example</h3>
+                    </div>
+                    <div class="box-body">
+                        <form class="form-horizontal" th:action="@{/categories}" th:object="${categoryDto}" method="post" th:id="category">
+                            <fieldset>
+                                <div class="form-group" th:classappend="(${#fields.hasErrors('name')}? ' has-error')">
+                                    <label for="name" class="col-md-1 control-label">Category Name</label>
+                                    <div class="col-md-11">
+                                        <input type="text" class="form-control" id="name" name="name" th:field="*{name}"
+                                                placeholder="NAME"/>
+                                        <span class="help-block" th:if="${#fields.hasErrors('name')}"
+                                                th:errors="*{name}">Incorrect name</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <!-- <div class="col-md-10 col-md-offset-2"> -->
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Footer Bar -->
+<!-- Control Sidebar -->
+
+<!-- Add the sidebar's background. This div must be placed
+    immediately after the control sidebar -->
+</div>
+<!-- ./wrapper -->
+</th:block>
+
+<th:block layout:fragment="add_lib_js">
+</th:block>
+
+<th:block layout:fragment="custom_js">
+<script type="text/javascript" th:inline="javascript">
+/*<![CDATA[*/
+/*]]>*/
+</script>
+</th:block>
+
+</html>

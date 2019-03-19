@@ -3,6 +3,8 @@ package com.wonwoo.wonwooblog.category;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.wonwoo.wonwooblog.exception.NotFoundException;
+
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -36,9 +38,11 @@ public class CategoryService {
         // https://stackoverflow.com/questions/49561425/cant-use-findone-in-my-code-with-jparepository
         // http://memo.polypia.net/archives/2900
         Category oldCategory = categoryRepository.findById(category.getId()).get();
-        if(oldCategory != null){
-            oldCategory.setName(category.getName());
+        if(oldCategory == null){
+            throw new NotFoundException(category.getId() + " not found...");    
         }
+
+        oldCategory.setName(category.getName());
     }
 
     @Cacheable("blog.category")

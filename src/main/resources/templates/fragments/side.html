@@ -34,14 +34,29 @@
             <li class="header">MAIN NAVIGATION</li>
 
             <!-- Blog -->
-            <li class="active">
+            <li class="treeview active">
                 <!-- <a href="pages/widgets.html"> -->
-                <a th:href="@{/}">
+                <!-- <a th:href="@{/}">
                     <i class="fa fa-windows"></i> <span>Blog</span>
                     <span class="pull-right-container">
                         <small class="label pull-right bg-green">test</small>
                     </span>
+                </a> -->
+                <a href="#">
+                    <i class="fa fa-windows"></i> <span>Blog</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        <small class="label pull-right bg-green">test</small>
+                    </span>
                 </a>
+                <ul class="treeview-menu">
+                    <li class="active">
+                        <a th:href="@{/}"><i class="fa fa-circle-o"></i> Post</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/categories}"><i class="fa fa-circle-o"></i> Category</a>
+                    </li>
+                </ul>
             </li>
 
             <!-- Sample -->

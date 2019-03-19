@@ -32,12 +32,12 @@ public class CategoryController {
     @GetMapping
     public String categories(Pageable pageable, Model model) {
         model.addAttribute("categories", categoryService.findAll(pageable));
-        return "category/list";
+        return "pages/blog/category/list";
     }
 
     @GetMapping("/new")
     public String newCategory(@ModelAttribute CategoryDto categoryDto) {
-        return "category/new";
+        return "pages/blog/category/new";
     }
 
     @GetMapping("/{id}/edit")
@@ -46,10 +46,10 @@ public class CategoryController {
         return "category/edit";
     }
 
-    @PostMapping
+    @PostMapping // mapping url 이 없지만 기본 매핑 url(Controller에 매핑된 url)로 매핑됨. 단, list와 다른점은 method type이 다름
     public String createCategory(@ModelAttribute @Valid CategoryDto categoryDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "category/new";
+            return "pages/blog/category/new";
         }
         categoryService.createCategory(new Category(categoryDto.getId(), categoryDto.getName()));
         return "redirect:/categories";
