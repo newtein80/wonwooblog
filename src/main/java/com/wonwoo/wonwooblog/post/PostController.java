@@ -80,7 +80,7 @@ public class PostController {
         createPostDto.setId(id);
 
         model.addAttribute("editPost", createPostDto);
-        return "post/edit";
+        return "pages/blog/post/edit";
     }
 
     @PostMapping
