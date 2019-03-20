@@ -15,6 +15,8 @@
 <link th:href="@{/blog/css/post.css}" rel="stylesheet" />
 <!-- <link th:href="@{/blog/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet" /> -->
 <link th:href="@{/blog/markdown/css/github-gist.css}" rel="stylesheet" />
+<!-- Select2 -->
+<link rel="stylesheet" th:href="@{/bower_components/select2/dist/css/select2.min.css}">
 </th:block>
 
 <th:block layout:fragment="custom_css">
@@ -40,50 +42,39 @@
                             <h3 class="box-title">Quick Example</h3>
                         </div>
 
-                        <!-- https://javacan.tistory.com/entry/Bean-Validation-2-Spring-5-valiidatiion -->
                         <!-- form start -->
                         <!-- <form class="form-horizontal well bs-component col-lg-10 col-lg-offset-1"
                             th:action="@{/posts}" th:object="${postDto}" method="post" th:id="post"> -->
-                        <form class="form-horizontal" th:action="@{'/posts/'+${id}+'/edit'}" th:object="${editPost}" method="post" th:id="post">
+                        <form class="form-horizontal" th:action="@{/posts}" th:object="${postDto}" method="post" th:id="post">
                             <div class="box-body">
                                 <fieldset>
-                                    <!-- 기존 class 에 append 되기때문에 한칸을 띄우고 클래스명이 붙어야 한다. -->
                                     <div class="form-group" th:classappend="(${#fields.hasErrors('title')}? ' has-error')">
                                         <label for="title" class="col-md-1 control-label">Title</label>
-
                                         <div class="col-md-11">
-                                            <input type="text" class="form-control" id="title" name="title" th:field="*{title}" placeholder="Title"/>
-                                            <span class="help-block" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+                                            <input type="text" class="form-control" id="title" name="title" th:field="*{title}"
+                                                    placeholder="Title"/>
+                                            <span class="help-block" th:if="${#fields.hasErrors('title')}"
+                                                    th:errors="*{title}">Incorrect title</span>
                                         </div>
                                     </div>
-                                
+
+                                    <!-- https://jsonobject.tistory.com/175 -->
+                                    <!-- http://select2.github.io/select2/ -->
                                     <div class="form-group" th:classappend="(${#fields.hasErrors('categoryId')}? ' has-error')">
                                         <label for="categories" class="col-md-1 control-label">Categories</label>
-
                                         <div class="col-md-11">
-                                            <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
-                                                <label class="btn btn-primary active">
-                                                    <!-- https://okky.kr/article/535985 -->
-                                                    <!-- <input th:onclick="|openGate('${category.name}', '${category.name}');|" name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" /> -->
-                                                    <!-- <input th:onclick="|openGate('${category.name}');|" name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" /> -->
-                                                    <!-- <input th:onclick="'javascript:openGate(\'' + ${category.name} + '\');''" name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" /> -->
-                                                    <!-- <input th:onclick="openGate('${category.name}','${category.name}');" name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" /> -->
-                                                    <!-- <input th:onclick="'openGate(\'' + ${category.name} + '\',\'' + ${category.name} + '\')'" name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" /> -->
-                                                    <input name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" />
-                                                </label>
-                                                <!-- <label th:text="${category.name}"></label> -->
-                                                <!-- <label th:text="${category.id}"></label> -->
-                                            </div>
-                                            <input name="categoryId" type="radio" th:text="default" th:value="1" checked="checked"/>
-                                            <span class="help-block" style="text-align: center;" th:if="${#fields.hasErrors('categoryId')}"
+                                            <select class="form-control select2" id="select2Multiple" multiple="multiple" data-placeholder="Select a State">
+                                                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+                                            </select>
+                                            <input type="hidden" id="categoryId" name="categoryId" />
+                                            <input type="hidden" id="categoryName" name="categoryName" />
+                                            <span class="help-block" th:if="${#fields.hasErrors('categoryId')}"
                                                     th:errors="*{categoryId}">Incorrect title</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label class="col-md-1 control-label">Category</label>
-                                        <div class="col-md-11">
-                                            <input type="text" class="form-control" id="categoryName" disabled="disabled" value="1"/>
+                                            <!-- 
+                                                function changeCategory(name){
+                                                    document.getElementById("categoryName").value = name;
+                                                }
+                                            -->
                                         </div>
                                     </div>
 
@@ -110,6 +101,7 @@
                             <div class="box-footer">
                                 <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
                                 <a class="btn btn-primary" th:href="@{/}">Cancel</a>
+                                <!-- <input class="btn btn-primary pull-right" type="button" value="Save" onclick="saveAsHtml()"/> -->
                                 <input class="btn btn-primary pull-right" type="button" value="Save" onclick="saveAsHtml()"/>
                             </div>
                         </form>
@@ -130,6 +122,8 @@
 </th:block>
 
 <th:block layout:fragment="add_lib_js">
+<!-- Select2 -->
+<script th:src="@{/bower_components/select2/dist/js/select2.full.min.js}"></script>
 <!-- <script src="blog/markdown/js/markdown-it.js"></script> -->
 <script th:src="@{/blog/markdown/js/markdown-it.js}"></script>
 <script th:src="@{/blog/markdown/js/markdown-it-footnote.js}"></script>
@@ -147,9 +141,49 @@
 <th:block layout:fragment="custom_js">
     <script type="text/javascript" th:inline="javascript">
         /*<![CDATA[*/
+        $(function () {
+            //Initialize Select2 Elements
+            $('#select2Multiple').select2({
+                // maximumSelectionSize: 1
+                maximumSelectionLength: 3
+            });
+        })
+
         function deletePost(postId) {
             document.getElementById("post").action = "/posts/" + postId + "/delete";
             document.getElementById("post").submit();
+        }
+
+        // https://stackoverflow.com/questions/37365199/get-selected-option-in-select2-event-when-multiple-options-can-be-selected
+        var old_values = [];
+        var target_multi_select = $('#select2Multiple');
+        var target_multi_selected_input_id = $('#categoryId');
+        var target_multi_selected_input_name = $('#categoryName');
+
+        target_multi_select.on("select2:select select2:unselect", function(event){
+            var values = [];
+            var values_id = [];
+
+            // copy all option values from selected
+            $(event.currentTarget).find("option:selected").each(function (i, selected) {
+                values[i] = $(selected).text();
+                values_id[i] = $(selected).val();
+            });
+            // doing a diff of old_values gives the new values selected
+            var last = $(values).not(old_values).get();
+            // update old_values for future use
+            old_values = values;
+            // output values (all current values selected)
+            // console.log("selected values: ", values);
+            // output last added value
+            // console.log("last added: ", last);
+
+            target_multi_selected_input_id.val(values_id);
+            target_multi_selected_input_name.val(values);
+        })
+
+        function alertSelect2Value(){
+            alert($('#categoryId').val() + " :::: " + $('#categoryName').val());
         }
         /*]]>*/
     </script>

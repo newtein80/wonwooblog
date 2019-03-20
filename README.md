@@ -1,5 +1,13 @@
 # http://wonwoo.ml/index.php/post/1143
 
+https://n1tjrgns.tistory.com/135
+
+https://cyberx.tistory.com/132
+
+google : spring boot abstract entity class
+
+google : react.js spa
+
 AdminLte 오류나는 메뉴들
 Layout Options -- All
 Flot
@@ -16,6 +24,16 @@ https://jeong-pro.tistory.com/170
 https://adminlte.io/themes/AdminLTE/
 
 https://gurumee92.tistory.com/76
+
+https://cyberx.tistory.com/search/thymeleaf
+
+https://riptutorial.com/ko/thymeleaf/topic/10675/%ED%91%9C%ED%98%84%EC%8B%9D-%EC%9C%A0%ED%8B%B8%EB%A6%AC%ED%8B%B0-%EA%B0%9D%EC%B2%B4
+
+https://javacan.tistory.com/entry/Bean-Validation-2-Spring-5-valiidatiion
+
+---
+ Only variable expressions returning numbers or booleans are allowed in this context, any other datatypes are not trusted in the context of this expression, including Strings or any other object that could be rendered as a text literal. A typical case is HTML attributes for event handlers (e.g. "onload"), in which textual data from variables should better be output to "data-*" attributes and then read from the event handler.
+---
 
 <div class="widget-user-header bg-black" style="background: url('../dist/img/photo1.png') center center;">
 

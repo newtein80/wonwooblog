@@ -2,7 +2,8 @@
  * Created by wonwoo on 2016. 9. 13..
  */
 function changeCategory(name){
-    document.getElementById("categoryName").value = name;
+    alert("tet");
+    //document.getElementById("categoryName").value = name;
 }
 
 function openGate(name1, name2) {

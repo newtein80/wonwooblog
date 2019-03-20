@@ -86,7 +86,7 @@ public class PostController {
     @PostMapping
     public String createPost(@ModelAttribute @Valid PostDto createPost, BindingResult bindingResult, Model model) {
         if(bindingResult.hasErrors()){
-            return "post/new";
+            return "pages/blog/post/new";
         }
 
         Post post = new Post(
@@ -107,7 +107,7 @@ public class PostController {
     public String updatePost(@PathVariable Long id, @ModelAttribute("editPost") @Valid PostDto updatePostItem, BindingResult bindingResult) {
 
         if(bindingResult.hasErrors()){
-            return "post/edit";
+            return "pages/blog/post/edit";
         }
         
         // post도 comment와 마찬가지로 생성시에 연관관계의 category를 넣어 줬다. 연관관계의 주인만이 읽기, 쓰기가 모두 가능하다. 주인이 아닌 곳에서는 읽기만 가능하다.

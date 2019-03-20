@@ -40,14 +40,12 @@
                             <h3 class="box-title">Quick Example</h3>
                         </div>
 
-                        <!-- https://javacan.tistory.com/entry/Bean-Validation-2-Spring-5-valiidatiion -->
                         <!-- form start -->
                         <!-- <form class="form-horizontal well bs-component col-lg-10 col-lg-offset-1"
                             th:action="@{/posts}" th:object="${postDto}" method="post" th:id="post"> -->
-                        <form class="form-horizontal" th:action="@{'/posts/'+${id}+'/edit'}" th:object="${editPost}" method="post" th:id="post">
+                        <form class="form-horizontal" th:action="@{'/posts/'+${id}+'/edit'}" th:object="${postDto}" method="post" th:id="post">
                             <div class="box-body">
                                 <fieldset>
-                                    <!-- 기존 class 에 append 되기때문에 한칸을 띄우고 클래스명이 붙어야 한다. -->
                                     <div class="form-group" th:classappend="(${#fields.hasErrors('title')}? ' has-error')">
                                         <label for="title" class="col-md-1 control-label">Title</label>
 

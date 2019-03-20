@@ -63,6 +63,7 @@ layout:decorate="~{layout/main_layout}">
               </div>
             </div>
 
+            <!-- https://cyberx.tistory.com/132 -->
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
@@ -71,10 +72,13 @@ layout:decorate="~{layout/main_layout}">
                       <th> ID </th>
                       <th> TITLE </th>
                       <th> NAME </th>
+                      <th> ID > 9 check</th>
+                      <th> Thymeleaf if-else</th>
                       <th> Detail </th>
                   </tr>
                 </thead>
                 <tbody>
+                  <!-- https://cyberx.tistory.com/132 -->
                   <tr th:if="${posts.empty}">
                     <td colspan="3"> No Books Available </td>
                   </tr>
@@ -82,6 +86,14 @@ layout:decorate="~{layout/main_layout}">
                     <td><span th:text="${post.id}"> id </span></td>
                     <td><span th:text="${post.title}"> title </span></td>
                     <td><span th:text="${post.category.name}"> category.name </span></td>
+                    <td>
+                      <span th:if="${post.id} > 9" th:text="'>'"></span>
+                      <span th:unless="${post.id} > 9" th:text="'<'"></span>
+                    </td>
+                    <td>
+                      <span th:if="${post.title} == '테스트11'" th:text="'Equal'"></span> 
+                      <span th:unless="${post.title} == '테스트11'" th:text="'Diff'"></span>
+                    </td>
                     <td><a class="btn-sm btn-info" th:href="@{'/posts/' + ${post.id}}">DETAIL</a></td>
                   </tr>
                 </tbody>
