@@ -3,14 +3,8 @@ insert into category(ID, NAME, REG_DATE) values(1, 'Category1', CURRENT_TIMESTAM
 insert into category(ID, NAME, REG_DATE) values(2, 'Category2', CURRENT_TIMESTAMP());
 insert into category(ID, NAME, REG_DATE) values(3, 'Category3', CURRENT_TIMESTAMP());
 insert into category(ID, NAME, REG_DATE) values(4, 'Category4', CURRENT_TIMESTAMP());
-
 insert into category(ID, NAME, REG_DATE) values(5, 'Category5', CURRENT_TIMESTAMP());
 insert into category(ID, NAME, REG_DATE) values(6, 'Category6', CURRENT_TIMESTAMP());
-insert into category(ID, NAME, REG_DATE) values(7, 'Category7', CURRENT_TIMESTAMP());
-insert into category(ID, NAME, REG_DATE) values(8, 'Category8', CURRENT_TIMESTAMP());
-insert into category(ID, NAME, REG_DATE) values(9, 'Category9', CURRENT_TIMESTAMP());
-insert into category(ID, NAME, REG_DATE) values(10, 'Category10', CURRENT_TIMESTAMP());
-insert into category(ID, NAME, REG_DATE) values(11, 'Category11', CURRENT_TIMESTAMP());
 
 insert into post(ID, TITLE, CODE, CONTENT, STATUS, REG_DATE, CATEGORY_ID) values(1, '테스트1', '지금 포스팅은 테스트1 포스팅 입니다.', '지금 포스팅은 테스트1 포스팅 입니다.', 'Y',CURRENT_TIMESTAMP(), 1);
 insert into post(ID, TITLE, CODE, CONTENT, STATUS, REG_DATE, CATEGORY_ID) values(2, '테스트2', '지금 포스팅은 테스트2 포스팅 입니다.', '지금 포스팅은 테스트2 포스팅 입니다.', 'Y',CURRENT_TIMESTAMP(), 2);

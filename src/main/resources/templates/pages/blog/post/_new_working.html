@@ -66,90 +66,116 @@
                                             </select>
                                         </div>
                                     </div>
+                                    
 
-                                    <!-- <div class="form-group" th:classappend="(${#fields.hasErrors('categoryId')}? ' has-error')">
-                                        <label for="categories" class="col-md-2 control-label">Test 1 - ok</label>
+                                    <div class="form-group" th:classappend="(${#fields.hasErrors('categoryId')}? ' has-error')">
+                                        <label for="categories" class="col-md-2 control-label">Use th:with</label>
                                         <div class="col-md-10">
                                             <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
-                                                <label class="btn btn-primary active"
-                                                        th:with="category_name=${category.name}, category_id=${category.id}"
-                                                        th:onclick="changeCategory([[${category_name}]]);">
-                                                    <input name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" />
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div> -->
-
-                                    <!-- <div class="form-group" th:classappend="(${#fields.hasErrors('categoryId')}? ' has-error')">
-                                        <label for="categories" class="col-md-2 control-label">Test 2</label>
-                                        <div class="col-md-10">
-                                            <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
-                                                <label class="btn btn-primary active"
-                                                        th:with="category_name=${category.name}, category_id=${category.id}" >
-
+                                                <!-- <label class="btn btn-primary active" th:with="category_name=${category.name}, category_id=${category.id}" th:onclick="'changeCategory(\'' + ${category.name} + '\')'" > -->
+                                                    <label class="btn btn-primary active" th:with="category_name=${category.name}, category_id=${category.id}" >
                                                     <input name="categoryId" type="radio" th:text="${category_name}" th:value="${category_id}" />
                                                 </label>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
 
-                                    <!-- <div class="form-group" th:classappend="(${#fields.hasErrors('categoryId')}? ' has-error')">
-                                        <label for="categories" class="col-md-2 control-label">Test 3 - ok</label>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Test - 1</label>
                                         <div class="col-md-10">
-                                            <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
-                                                <label class="btn btn-primary active" th:with="category_name=${category.name}, category_id=${category.id}"
-                                                        th:data-category-id="${category.id}"
-                                                        th:data-category-name="${category.name}"
-                                                        th:onclick="changeCategory(this.getAttribute('data-category-name'));" >
-                                                    <input name="categoryId" type="radio" th:text="${category_name}" th:value="${category_id}"/>
+                                            <!-- <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
+                                                <label class="btn btn-primary active" th:with="category_name=${category.name}, category_id=${category.id}">
+                                                    <input th:data-category-id="${category.id}" th:data-category-name="${category.name}"
+                                                            name="categoryId" type="radio" th:text="${category_name}" th:value="${category_id}"
+                                                            th:onclick="changeCategory(this.getAttribute('data-category-name'));" />
                                                 </label>
-                                            </div>
-                                        </div>
-                                    </div> -->
-
-                                    <!-- <div class="form-group" th:classappend="(${#fields.hasErrors('categoryId')}? ' has-error')">
-                                        <label for="categories" class="col-md-2 control-label">Test 5-1</label>
-                                        <div class="col-md-10">
+                                            </div> -->
                                             <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
-                                                <label class="btn btn-primary active"
-                                                        th:onclick="@{changeCategory('${category.name}');}">
+                                                <label class="btn btn-primary active" th:with="category_name=${category.name}, category_id=${category.id}" th:onclick="javascript:changeCategory([[${category_name}]]);">
                                                     <input name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" />
                                                 </label>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
 
-                                    <!-- <div class="form-group" th:classappend="(${#fields.hasErrors('categoryId')}? ' has-error')">
-                                        <label for="categories" class="col-md-2 control-label">Test 6 - ok</label>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Test - [[..]]</label>
                                         <div class="col-md-10">
+                                            <!-- <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
+                                                <label class="btn btn-primary active" th:with="category_name=${category.name}, category_id=${category.id}">
+                                                    <input th:data-category-id="${category.id}" th:data-category-name="${category.name}"
+                                                            name="categoryId" type="radio" th:text="${category_name}" th:value="${category_id}"
+                                                            th:onclick="changeCategory(this.getAttribute('data-category-name'));" />
+                                                </label>
+                                            </div> -->
                                             <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
-                                                <label class="btn btn-primary active"
-                                                        th:with="category_name=${category.name}, category_id=${category.id}"
-                                                        th:onclick="changeCategory([[${category_name}]]);">
+                                                <label class="btn btn-primary active" th:onclick="javascript:changeCategory([[${category.name}]]);">
                                                     <input name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" />
                                                 </label>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
 
-                                    <!-- <div class="form-group" th:classappend="(${#fields.hasErrors('categoryId')}? ' has-error')">
-                                        <label for="categories" class="col-md-2 control-label">Test 7</label>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Test - th:with</label>
                                         <div class="col-md-10">
+                                            <!-- <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
+                                                <label class="btn btn-primary active" th:with="category_name=${category.name}, category_id=${category.id}">
+                                                    <input th:data-category-id="${category.id}" th:data-category-name="${category.name}"
+                                                            name="categoryId" type="radio" th:text="${category_name}" th:value="${category_id}"
+                                                            th:onclick="changeCategory(this.getAttribute('data-category-name'));" />
+                                                </label>
+                                            </div> -->
                                             <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
-                                                <label class="btn btn-primary active"
-                                                        th:with="category_name=${category.name}, category_id=${category.id}"
-                                                        th:onclick="changeCategory(${category_name});" >
+                                                <label class="btn btn-primary active" th:with="category_name=${category.name}, category_id=${category.id}" th:onclick="javascript:changeCategory([[${category_name}]]);">
                                                     <input name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" />
                                                 </label>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Test - 2</label>
+                                        <div class="col-md-10">
+                                            <!-- <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
+                                                <label class="btn btn-primary active" th:with="category_name=${category.name}, category_id=${category.id}">
+                                                    <input th:data-category-id="${category.id}" th:data-category-name="${category.name}"
+                                                            name="categoryId" type="radio" th:text="${category_name}" th:value="${category_id}"
+                                                            th:onclick="changeCategory(this.getAttribute('data-category-name'));" />
+                                                </label>
+                                            </div> -->
+                                            <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
+                                                <label class="btn btn-primary active" th:with="category_name=${category.name}, category_id=${category.id}" >
+                                                    <input onclick="javascript:alert('t');" name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" />
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Test - 2.1</label>
+                                        <div class="col-md-10">
+                                            <!-- <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
+                                                <label class="btn btn-primary active" th:with="category_name=${category.name}, category_id=${category.id}">
+                                                    <input th:data-category-id="${category.id}" th:data-category-name="${category.name}"
+                                                            name="categoryId" type="radio" th:text="${category_name}" th:value="${category_id}"
+                                                            th:onclick="changeCategory(this.getAttribute('data-category-name'));" />
+                                                </label>
+                                            </div> -->
+                                            <div class="btn-group" data-toggle="buttons" th:each="category : ${categories}">
+                                                <label class="btn btn-primary active" th:with="category_name=${category.name}, category_id=${category.id}" onclick="javascript:alert('t');">
+                                                    <input name="categoryId" type="radio" th:text="${category.name}" th:value="${category.id}" />
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">category</label>
                                         <div class="col-md-10">
                                             <input type="text" class="form-control" id="categoryName" disabled="disabled" />
                                             <input type="hidden" id="categoryId" name="categoryId" />
+                                            <!-- <input type="hidden" id="categoryName" name="categoryName" /> -->
                                             <span class="help-block" th:if="${#fields.hasErrors('categoryId')}" th:errors="*{categoryId}">Incorrect title</span>
                                         </div>
                                     </div>
