@@ -110,7 +110,7 @@
                                     <img class="img-responsive img-circle img-sm" th:src="@{/dist/img/user4-128x128.jpg}" alt="Alt Text">
                                     <input type="hidden" th:value="${post.id}" id="postId" name="postId" />
                                     <!-- .img-push is used to add margin to elements next to floating images -->
-                                    <div class="input-group input-group-sm" style="margin-left: 40px;" th:classappend="(${#fields.hasErrors('content')}? ' has-error')">
+                                    <div class="input-group input-group-sm" th:classappend="(${#fields.hasErrors('content')}? ' has-error')">
                                         <input type="text" class="form-control" id="content" name="content" placeholder="content"/>
                                         <span class="help-block" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span>
                                         <span class="input-group-btn">
